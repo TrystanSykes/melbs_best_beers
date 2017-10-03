@@ -1,0 +1,33 @@
+<h2>Add New Brewery</h2>
+
+<% if @errors %>
+<ul>
+<% @errors.each do |key,value| %>
+<li><%= key %> <%= value %></li>
+<% end %>
+</ul>
+<% end %>
+
+<form action="/breweries" method="post">
+  <div class="create_field">
+    <label for="">Brewery Name</label>
+    <input type="text" name="brewery_name" value="">
+  </div>
+  <div class="create_field">
+    <label for="">Address</label>
+    <input type="text" name="address" value="">
+  </div>
+  <div class="create_field">
+    <label for="">Bar Address</label>
+    <input type="text" name="bar_address" value="" placeholder="Write 'same' if as above">
+  </div>
+  <div class="create_field">
+    <label for="">Website</label>
+    <input type="text" name="website" value="">
+  </div>
+  <div class="create_field">
+    <label for="">Logo URL</label>
+    <input type="text" name="logo" value="">
+  </div>
+  <button type="submit">Submit</button>
+</form>

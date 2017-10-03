@@ -1,0 +1,14 @@
+<h1>Breweries</h1>
+
+<% if logged_in? %>
+<a href="/breweries/create">Add a Brewery</a>
+<% end %>
+
+<% @breweries.each do |brewery| %>
+<article class='brewery'>
+<h2>
+  <a href="/breweries/<%= brewery.id %>"><%= brewery.name %></a>
+</h2>
+<a href="/breweries/<%= brewery.id %>"><img class="logo" src="<%= brewery.logo %>" alt=""></a>
+</article>
+<% end %>

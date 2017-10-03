@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Melbourne's Best Beers</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+</head>
+<body>
+  <header>
+    <a href="/">Home</a>
+    <a href="/beers">Beers</a>
+    <a href="/breweries">Breweries</a>
+    <a href="/beer_reviews">Beer Reviews</a>
+    <a href="/brewery_reviews">Brewery Reviews</a>
+    <% if !logged_in?  %>
+      <form action="/login" method="get">
+      <button>Log in</button>
+      </form>
+    <% end %>
+    <% if logged_in?  %>
+      <p class='user_details'>Logged in as <%= current_user.username %></p>
+      <form action="/session" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Logout</button>
+      </form>
+    <% end %>
+  </header>
+
+  <%= yield %>
+
+</body>
+</html>

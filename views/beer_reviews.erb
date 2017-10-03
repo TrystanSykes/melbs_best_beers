@@ -1,0 +1,15 @@
+<h1>Beer Reviews</h1>
+
+<% @beer_reviews.each do |review| %>
+<article class='review'>
+<h2>
+  <a href="/beers/<%= review.beer_id %>">
+  <%= review.beer.name %></a>
+</h2>
+<a href="/beers/<%= review.beer_id %>">
+<img src="<%= review.beer.image %>" alt=""></a>
+
+<p><%= review.body %> By <%= review.user.username %></p>
+
+</article>
+<% end %>

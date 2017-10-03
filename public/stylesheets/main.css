@@ -1,0 +1,19 @@
+.beer_details img {
+  display: block;
+}
+
+.logo {
+ width: 20%;
+}
+
+.beer_links {
+  display: inline-block;
+}
+
+.create_field {
+  margin: 20px;
+}
+
+.brewery {
+  margin: 20px;
+}

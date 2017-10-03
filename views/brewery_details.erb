@@ -1,0 +1,21 @@
+<h1><%= @brewery.name %></h1>
+<article class='brewery_details'>
+<img class="logo" src="<%= @brewery.logo %>" alt="">
+<ul>
+  <li>Name: <%= @brewery.name %></li>
+  <li>Address: <%= @brewery.address %></li>
+  <li>Bar Address: <%= @brewery.bar_address %></li>
+  <li>Website: <a href="<%= @brewery.website %>">Here</a></li>
+  <li>Brewery Avg Rating: <%= @brewery.avg_rating %></li>
+</ul>
+
+<% @reviews.each do |review| %>
+<p><%= review.body %> By <%= review.user.username %></p>
+<% end %>
+</article>
+
+<% @beers.each do |beer| %>
+<article class='beer_links'>
+<a href="/beers/<%= beer.id %>"><img src="<%= beer.image %>" alt=""></a>
+</article>
+<% end %>

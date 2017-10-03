@@ -1,0 +1,13 @@
+<h1>Log in</h1>
+<% if @message %>
+<h2>  <%= @message %> </h2>
+<% end %>
+<form action="/session" method="post">
+<label for="">Email</label>
+<input type="text" name="email">
+
+<label for="">Password</label>
+<input type="password" name="password">
+
+<button>Log in</button>
+</form>

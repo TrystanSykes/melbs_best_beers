@@ -1,0 +1,17 @@
+<h1>Beers</h1>
+
+<% if logged_in? %>
+<a href="/beers/create">Add a beer</a>
+<% end %>
+<% @beers.each do |beer| %>
+<article class='beer'>
+<h2>
+  <a href="/beers/<%= beer.id %>">
+  <%= beer.name %>
+  </a>
+</h2>
+<a href="/beers/<%= beer.id %>">
+<img src="<%= beer.image %>" alt="">
+</a>
+</article>
+<% end %>
