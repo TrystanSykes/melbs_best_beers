@@ -9,6 +9,10 @@
   <li>Brewery Avg Rating: <%= @brewery.avg_rating %></li>
 </ul>
 
+<% if logged_in? %>
+<a class="new_review" href="/brewery_reviews/new">Add a Brewery Review</a>
+<% end %>
+
 <% @reviews.each do |review| %>
 <p><%= review.body %> By <%= review.user.username %></p>
 <% end %>

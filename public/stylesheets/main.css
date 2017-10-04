@@ -1,9 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 .beer_details img {
   display: block;
 }
 
 .logo {
  width: 20%;
+ display: block;
 }
 
 .beer_links {
@@ -15,5 +20,13 @@
 }
 
 .brewery {
+  margin: 20px;
+}
+
+.new_review {
+  display: block;
+}
+
+.create_account {
   margin: 20px;
 }

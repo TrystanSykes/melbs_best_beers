@@ -1,0 +1,29 @@
+<h2>Add A Brewery Review</h2>
+
+<% if @errors %>
+<ul>
+<% @errors.each do |key,value| %>
+<li><%= key %> <%= value %></li>
+<% end %>
+</ul>
+<% end %>
+
+<form action="/brewery_reviews" method="post">
+  <div class="create_field">
+    <label for="">Brewery</label>
+    <select name="brewery_reviewed" id="">
+      <% @breweries.each do |brewery| %>
+        <option value="<%= brewery.id %>"><%= brewery.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <div class="create_field">
+    <label for="">Review Text</label>
+    <textarea name="body" id="" cols="30" rows="10"></textarea>
+  </div>
+  <div class="create_field">
+    <label for="">Rating</label>
+    <input type="text" name="rating" value="" placeholder="Number from 1-5">
+  </div>
+  <button type="submit">Submit</button>
+</form>

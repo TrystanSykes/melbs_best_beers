@@ -1,0 +1,25 @@
+<h2>Add A Brewery Review</h2>
+
+<% if @errors %>
+<ul>
+<% @errors.each do |key,value| %>
+<li><%= key %> <%= value %></li>
+<% end %>
+</ul>
+<% end %>
+
+<form action="/users" method="post">
+  <div class="create_field">
+    <label for="">Username</label>
+    <input type="text" name="username" value="">
+  </div>
+  <div class="create_field">
+    <label for="">Email</label>
+    <input type="text" name="email" value="">
+  </div>
+  <div class="create_field">
+    <label for="">Password</label>
+    <input type="password" name="password" value="">
+  </div>
+  <button type="submit">Submit</button>
+</form>

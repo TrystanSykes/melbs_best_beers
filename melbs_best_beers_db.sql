@@ -55,3 +55,9 @@ Brewery.create(name: 'Mountain Goat', address: '80 North St, Richmond VIC 3121',
 Beer.create(name: 'Summer Ale', style: 'Summer Ale', abv: '4.7%', ibu: '20', image: 'https://www.goatbeer.com.au/wp-content/uploads/2017/03/product-summer-ale-2.png', brewery_id: 2)
 
 Beer.create(name: 'Fancy Pants', style: 'Amber Ale', abv: '5.2%', ibu: '30', image: 'https://www.goatbeer.com.au/wp-content/uploads/2017/03/xproduct-fancy-pants-1.png.pagespeed.ic.zpp3V9Usyz.webp', brewery_id: 2)
+
+Moondogs easiest drinking beer and one of their only entries that won't blow your head off. It still has enough bitterness and fruit to be interesting. Great for summer.
+
+This is my favorite beer, from my favorite style, NEIPA. Amazingly fruity, nicely balanced bitterness, a gorgeous color and somehow amongst all of that it does taste like breakfast juice!
+
+One of my favorite IPA's. Batches can vary a little but are always great. My favorite batch made the whole bar area at the brewery smell like passionfruit as soon as the tap was cracked <3

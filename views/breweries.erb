@@ -1,7 +1,7 @@
 <h1>Breweries</h1>
 
 <% if logged_in? %>
-<a href="/breweries/create">Add a Brewery</a>
+<a href="/breweries/new">Add a Brewery</a>
 <% end %>
 
 <% @breweries.each do |brewery| %>
@@ -10,5 +10,9 @@
   <a href="/breweries/<%= brewery.id %>"><%= brewery.name %></a>
 </h2>
 <a href="/breweries/<%= brewery.id %>"><img class="logo" src="<%= brewery.logo %>" alt=""></a>
+
+<% if logged_in? %>
+<a class="new_review" href="/brewery_reviews/new">Add a Brewery Review</a>
+<% end %>
 </article>
 <% end %>

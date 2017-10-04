@@ -36,29 +36,29 @@ end
 
 get '/beers' do
   session[:last_page] = request.env['REQUEST_PATH']
-  @beers = Beer.all
+  @beers = Beer.all.order(:brewery_id)
 erb :beers
 end
 
-get '/beers/create' do
-  @breweries = Brewery.all
+get '/beers/new' do
+  @breweries = Brewery.all.order(:id)
 erb :create_beer
 end
 
 get '/beers/:id' do
   session[:last_page] = request.env['REQUEST_PATH']
   @beer = Beer.find(params[:id])
-  @reviews = Beer_review.where(beer_id: params[:id])
+  @reviews = BeerReview.where(beer_id: params[:id])
 erb :beer_details
 end
 
 get '/breweries' do
   session[:last_page] = request.env['REQUEST_PATH']
-  @breweries = Brewery.all
+  @breweries = Brewery.all.order(:id)
 erb :breweries
 end
 
-get '/breweries/create' do
+get '/breweries/new' do
 erb :create_brewery
 end
 
@@ -66,20 +66,44 @@ get '/breweries/:id' do
   session[:last_page] = request.env['REQUEST_PATH']
   @brewery = Brewery.find(params[:id])
   @beers = Beer.where(brewery_id: params[:id])
-  @reviews = Brewery_review.where(brewery_id: params[:id])
+  @reviews = BreweryReview.where(brewery_id: params[:id])
 erb :brewery_details
 end
 
 get '/beer_reviews' do
   session[:last_page] = request.env['REQUEST_PATH']
-  @beer_reviews = Beer_review.all
+  @beer_reviews = BeerReview.all.order(:id)
 erb :beer_reviews
+end
+
+get '/beer_reviews/new' do
+  @breweries = Brewery.all.order(:id)
+  erb :create_beer_review
 end
 
 get '/brewery_reviews' do
   session[:last_page] = request.env['REQUEST_PATH']
-  @brewery_reviews = Brewery_review.all
+  @brewery_reviews = BreweryReview.all.order(:id)
 erb :brewery_reviews
+end
+
+get '/brewery_reviews/new' do
+  @breweries = Brewery.all.order(:id)
+  erb :create_brewery_review
+end
+
+get '/users/new' do
+  erb :create_user
+end
+
+post '/users' do
+  @user = User.new(username: params[:username],email: params[:email], password: params[:password])
+  if @user.save
+    redirect "#{session[:last_page]}"
+  else
+    @errors = @user.errors.messages
+    erb :create_user
+  end
 end
 
 post '/session' do
@@ -104,8 +128,7 @@ post '/beers' do
     redirect "/beers/#{@beer.id}"
   else
     @errors = @beer.errors.messages
-    @breweries = Brewery.all
-# binding.pry
+    @breweries = Brewery.all.order(:id)
     erb :create_beer
   end
 end
@@ -119,3 +142,34 @@ post '/breweries' do
     erb :create_brewery
   end
 end
+
+post '/beer_reviews' do
+  @beer = Beer.find(params[:beer_reviewed])
+  @beer_review = BeerReview.new(user_id: session[:user_id], beer: @beer, body: params[:body], rating: params[:rating])
+  if @beer_review.save
+    @reviews = @beer.beer_reviews
+    @beer.avg_rating = (@reviews.sum(&:rating).to_f / @reviews.count).round
+    @beer.save
+    redirect "/beers/#{@beer.id}"
+  else
+    @breweries = Brewery.all.order(:id)
+    @errors = @beer_review.errors.messages
+    erb :create_beer_review
+  end
+end
+
+post '/brewery_reviews' do
+  @brewery = Brewery.find(params[:brewery_reviewed])
+  @brewery_review = BreweryReview.new(user_id: session[:user_id], brewery_id: @brewery.id, body: params[:body], rating: params[:rating])
+  if @brewery_review.save
+    @reviews = @brewery.brewery_reviews
+    @brewery.avg_rating = (@reviews.sum(&:rating).to_f / @reviews.count).round
+    @brewery.save
+    redirect "/breweries/#{@brewery.id}"
+  else
+    @breweries = Brewery.all.order(:id)
+    @errors = @brewery_review.errors.messages
+    erb :create_brewery_review
+  end
+end
+

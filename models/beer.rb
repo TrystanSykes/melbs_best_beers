@@ -5,5 +5,8 @@ class Beer < ActiveRecord::Base
   validates :name, presence: true
   validates :abv, presence: true
   validates :image, presence: true, length: { minimum: 20 }
-  # errors.add(:name, "must be present!")
+  # errors.add(:name, "can't be blank!")
+  # errors.add(:abv, "can't be blank! put N/A if you don't know it.")
+  # errors.add(:name, "can't be blank!")
+
 end
