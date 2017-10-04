@@ -1,3 +1,4 @@
+<div class="container">
 <h1><%= @brewery.name %></h1>
 <article class='brewery_details'>
 <img class="logo" src="<%= @brewery.logo %>" alt="">
@@ -13,13 +14,19 @@
 <a class="new_review" href="/brewery_reviews/new">Add a Brewery Review</a>
 <% end %>
 
+</article> 
+<h2 class="reviews_heading">Reviews</h2>
+<div class="details_review">
 <% @reviews.each do |review| %>
 <p><%= review.body %> By <%= review.user.username %></p>
 <% end %>
-</article>
+</div>
+
+<h2 class="beers_heading">Beers</h2>
 
 <% @beers.each do |beer| %>
 <article class='beer_links'>
 <a href="/beers/<%= beer.id %>"><img src="<%= beer.image %>" alt=""></a>
 </article>
 <% end %>
+</div>

@@ -2,31 +2,188 @@
   box-sizing: border-box;
 }
 
-.beer_details img {
-  display: block;
+body {
+  font-family: 'Fredoka One', cursive;
+  background: url('../../images/Beer-Wallpapers-HD.jpg');
 }
 
+.container {
+  margin: 20px;
+}
+
+header {
+  margin: 20px auto;
+}
+
+header a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  text-transform: bold;
+  font-size: 1.5em;
+}
+
+.login_box {
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
+/*  width: 70%;*/
+}
+
+.beer_details {
+  margin: 10px auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  display: block;
+  width: 70%;
+}
+
+.beer_details h1 {
+  font-size: 2.5em;
+}
+
+.beer_details li {
+  font-size: 1.5em;
+}
+
+.beer_details img {
+  display: block;
+  margin: 20px auto;
+}
+
+.details_review p {
+  font-size: 1.5em;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  width: 70%;
+  margin: 10px auto;
+}
+
+.reviews_heading {
+  font-size: 2em;
+  width: 70%;
+  margin: 20px auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.beers_heading {
+  font-size: 2em;
+  margin: 20px auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.brewery_details {
+  margin: 10px auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  display: block;
+  width: 70%;
+}
+
+.brewery_details img {
+  display: block;
+  margin: 20px auto;
+}
+
+.brewery_details li {
+  font-size: 1.5em;
+}
+
+.brewery_details p {
+  font-size: 1.5em;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+
+
 .logo {
- width: 20%;
  display: block;
+ max-height: 50vh;
+}
+
+.logo_details {
+  max-height: 50vh;
 }
 
 .beer_links {
   display: inline-block;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .create_field {
   margin: 20px;
 }
 
-.brewery {
-  margin: 20px;
-}
-
 .new_review {
   display: block;
+  margin: 10px;
 }
 
 .create_account {
   margin: 20px;
+}
+
+.beer, .brewery, .review {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  display: inline-block;
+  height: 80vh;
+  vertical-align: top;
+  margin: 10px;
+}
+
+.beer {
+}
+
+.beer img {
+  height: 80%;
+}
+
+.brewery img {
+  max-height: 50vh;
+} 
+
+.review img {
+  max-height: 70%;
+}
+
+.review h2 {
+  font-size: 2em;
+}
+
+.review p {
+  max-width: 40%;
+  margin: 10px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.5em;
+}
+
+.review {
+  width: 70%;
+  display: block;
+  margin: 20px auto;
+}
+
+.brewery {
+  margin: 20px auto;
+}
+
+.user_option {
+  display: block;
 }

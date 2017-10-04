@@ -1,8 +1,11 @@
+<div class="container">
 <h1>Breweries</h1>
 
+<div class="user_option">
 <% if logged_in? %>
 <a href="/breweries/new">Add a Brewery</a>
 <% end %>
+</div>
 
 <% @breweries.each do |brewery| %>
 <article class='brewery'>
@@ -16,3 +19,4 @@
 <% end %>
 </article>
 <% end %>
+</div>

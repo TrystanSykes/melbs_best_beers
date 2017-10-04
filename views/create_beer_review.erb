@@ -1,9 +1,10 @@
+<div class="container">
 <h2>Add A Beer Review</h2>
 
 <% if @errors %>
 <ul>
 <% @errors.each do |key,value| %>
-<li><%= key %> <%= value %></li>
+<li><%= "#{key.to_s.capitalize} #{value[0]}" %></li>
 <% end %>
 </ul>
 <% end %>
@@ -31,3 +32,4 @@
   </div>
   <button type="submit">Submit</button>
 </form>
+</div>
