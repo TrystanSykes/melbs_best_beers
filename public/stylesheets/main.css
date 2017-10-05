@@ -22,6 +22,11 @@ h1 {
   background-color: white; 
 }
 
+.highest_rated {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 p {
   font-family: 'Cabin', sans-serif;
 }
@@ -88,6 +93,7 @@ header a {
 
 .top_beers img, .top_breweries img {
   margin: 0 auto;
+  display: block;
 }
 
 .index_beer, .index_brewery {
@@ -253,6 +259,7 @@ header a {
 
 .review img {
   max-height: 70%;
+  max-width: 35%;
 }
 
 .review h2 {
@@ -276,4 +283,6 @@ header a {
 /*.brewery {
   margin: 20px auto;
 }*/
+
+
 
