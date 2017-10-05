@@ -86,6 +86,10 @@ header a {
   vertical-align: top;
 }
 
+.top_beers img, .top_breweries img {
+  margin: 0 auto;
+}
+
 .index_beer, .index_brewery {
   display: block;
   border: 1px solid black;
@@ -211,7 +215,6 @@ header a {
   margin: 10px;
   font-size: 1.5em;
   background-color: white;
-  width: 40%;
 }
 
 .create_account {
