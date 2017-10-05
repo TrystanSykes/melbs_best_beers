@@ -20,7 +20,7 @@ a {
 
 h1 {
   /*margin-left: 10px;*/
-  font-size: 2.5em;
+  font-size: 2em;
   border: 1px solid black;
   border-radius: 20px;
   padding: 10px;
@@ -44,7 +44,7 @@ ul {
   background-color: white;
   border: 1px solid black;
   border-radius: 20px;
-  font-size: 1.5em;
+  font-size: 1.25em;
   padding: 20px;
   font-family: 'Cabin', sans-serif;
 }
@@ -54,7 +54,7 @@ ul {
 }
 
 .add_form button {
-  font-size: 1em;
+  font-size: .75em;
 }
 
 .user_option {
@@ -63,7 +63,7 @@ ul {
   padding: 10px;
   border: 1px solid black;
   border-radius: 20px;
-  font-size: 1.5em;
+  font-size: 1.25em;
   width: 25%;
   text-align: center;
   display: block;
@@ -85,7 +85,7 @@ header a {
   border: 1px solid black;
   border-radius: 20px;
   text-transform: bold;
-  font-size: 1.5em;
+  font-size: 1.25em;
   background-color: white;
 }
 
@@ -93,11 +93,13 @@ header a {
   border: 1px solid black;
   border-radius: 20px;
   margin: 5px 20px;
-  padding: 10px;
+  padding: 5px;
   background-color: white;
+  width: 30%;
+  display: inline-block;
 }
 .login_box button {
-  font-size: 1.5em;
+  font-size: 1.15em;
 }
 
 .top_beers, .top_breweries, .top_users {
@@ -122,17 +124,11 @@ header a {
   background-color: white;
 }
 
-.index_beer p, .index_brewery p {
-  font-size: 1.5em;
-}
 
-/*.top_breweries {
-  border: 1px solid black;
-  border-radius: 20px;
-  padding: 10px;
-  display: inline-block;
-  vertical-align: top;
-}*/
+
+.index_beer p, .index_brewery p {
+  font-size: 1.25em;
+}
 
 .beer_details {
   margin: 10px auto;
@@ -145,11 +141,11 @@ header a {
 }
 
 .beer_details h1 {
-  font-size: 2.5em;
+  font-size: 2em;
 }
 
 .beer_details li {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .beer_details img {
@@ -158,7 +154,7 @@ header a {
 }
 
 .details_review p {
-  font-size: 1.5em;
+  font-size: 1.25em;
   border: 1px solid black;
   border-radius: 20px;
   padding: 10px;
@@ -168,7 +164,7 @@ header a {
 }
 
 .reviews_heading {
-  font-size: 2em;
+  font-size: 1.75em;
   width: 70%;
   margin: 20px auto;
   border: 1px solid black;
@@ -178,7 +174,7 @@ header a {
 }
 
 .beers_heading {
-  font-size: 2em;
+  font-size: 1.75em;
   margin: 20px auto;
   border: 1px solid black;
   border-radius: 20px;
@@ -202,11 +198,11 @@ header a {
 }
 
 .brewery_details li {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .brewery_details p {
-  font-size: 1.5em;
+  font-size: 1.25em;
   border: 1px solid black;
   border-radius: 20px;
   padding: 10px;
@@ -214,7 +210,7 @@ header a {
 
 .user_details {
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1.25em;
   margin: 0 0 0 20px;
 }
 
@@ -244,7 +240,7 @@ header a {
 .new_review {
   display: block;
   margin: 10px;
-  font-size: 1.5em;
+  font-size: 1.25em;
   background-color: white;
 }
 
@@ -258,14 +254,17 @@ header a {
   border-radius: 20px;
   padding: 20px;
   display: inline-block;
-  height: 90vh;
   vertical-align: top;
   margin: 10px;
   background-color: white;
 }
 
+.beer {
+ height: 60vh;
+}
+
 .beer h2 {
-  font-size: 2em;
+  font-size: 1.75em;
   margin-top: 0;
 }
 
@@ -275,21 +274,26 @@ header a {
   display: block;
 }
 
+.brewery {
+  width: 30vw; 
+}
+
 .brewery img {
-  max-height: 50vh;
+  max-height: 40%;
+  max-width: 100%;
 } 
 
 .brewery h2 {
-  font-size: 2em;
+  font-size: 1.75em;
 }
 
 .review img {
-  max-height: 70%;
+  max-height: 60%;
   max-width: 30%;
 }
 
 .review h2 {
-  font-size: 2em;
+  font-size: 1.75em;
 }
 
 .review p {
@@ -297,17 +301,17 @@ header a {
   margin: 10px;
   display: inline-block;
   vertical-align: top;
-  font-size: 1.25em;
+  font-size: 1em;
   vertical-align: top;
 }
 
 .review form {
-  font-size: 1.5em;
+  font-size: 1.25em;
   display: inline-block;
 }
 
 .review button {
-  font-size: 1em;
+  font-size: .75em;
   margin-top: 20px;
 }
 
