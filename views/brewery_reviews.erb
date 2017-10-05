@@ -1,11 +1,11 @@
 <div class="container">
 <h1>Brewery Reviews</h1>
 
-<div class="user_option">
 <% if logged_in? %>
+<div class="user_option">
 <a href="/brewery_reviews/new">Add a Brewery Review</a>
-<% end %>
 </div>
+<% end %>
 
 <% @brewery_reviews.each do |review| %>
 <article class='review'>
@@ -16,7 +16,9 @@
 <img src="<%= review.brewery.logo %>" alt="">
 </a>
 
-<p><%= review.body %></p>
+<p><%= review.body %><br>
+  Rating: <%= review.rating %> out of 5 <br>
+   By <%= review.user.username %></p>
 
 </article>
 <% end %>
