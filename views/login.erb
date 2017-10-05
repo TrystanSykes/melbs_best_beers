@@ -1,24 +1,24 @@
 <div class="container">
-<h1>Log in</h1>
+  <h1>Log in</h1>
   <div class="add_form">
-<% if @message %>
-<h2>  <%= @message %> </h2>
-<% end %>
-<% if @user %>
-<p> Account Sucessfully Created <%= @user.username %> <br> Please Log In</p>
-<% end %>
-<form action="/session" method="post">
-<label for="">Email</label>
-<input type="text" name="email">
+    <% if @message %>
+      <h2>  <%= @message %> </h2>
+    <% end %>
+    <% if @user %>
+      <p> Account Sucessfully Created <%= @user.username %> <br> Please Log In</p>
+    <% end %>
+    <form action="/session" method="post">
+      <label for="">Email</label>
+      <input type="text" name="email">
 
-<label for="">Password</label>
-<input type="password" name="password">
+      <label for="">Password</label>
+      <input type="password" name="password">
 
-<button>Log in</button>
-</form>
+      <button>Log in</button>
+    </form>
 
-<form class="create_account" action="/users/new" method="get">
-  <button>Create Account</button>
-</form>
-</div>
+    <form class="create_account" action="/users/new" method="get">
+      <button>Create Account</button>
+    </form>
+  </div>
 </div>

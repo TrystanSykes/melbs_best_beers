@@ -15,10 +15,10 @@
     <a href="/beer_reviews">Beer Reviews</a>
     <a href="/brewery_reviews">Brewery Reviews</a>
     <div class="login_box">
-    <% if !logged_in?  %>
-      <form action="/login" method="get">
-      <button>Log in</button>
-      </form>
+      <% if !logged_in?  %>
+        <form action="/login" method="get">
+        <button>Log in</button>
+        </form>
       <% end %>
       <% if logged_in?  %>
         <form action="/session" method="post">

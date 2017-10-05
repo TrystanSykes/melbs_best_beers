@@ -3,11 +3,11 @@
     <h2>Add New Beer</h2>
 
     <% if @errors %>
-    <ul>
-    <% @errors.each do |key,value| %>
-    <li><%= "#{key.to_s.capitalize} #{value[0]}" %></li>
-    <% end %>
-    </ul>
+      <ul>
+        <% @errors.each do |key,value| %>
+          <li><%= "#{key.to_s.capitalize} #{value[0]}" %></li>
+        <% end %>
+      </ul>
     <% end %>
 
     <form action="/beers" method="post">

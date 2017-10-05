@@ -1,23 +1,23 @@
 <div class="container">
-<h1>Breweries</h1>
+  <h1>Breweries</h1>
 
-<% if logged_in? %>
-<div class="user_option">
-<a href="/breweries/new">Add a Brewery</a>
-</div>
-<% end %>
+  <% if logged_in? %>
+    <div class="user_option">
+      <a href="/breweries/new">Add a Brewery</a>
+    </div>
+  <% end %>
 
-<% @breweries.each do |brewery| %>
-<article class='brewery'>
-<h2>
-  <a href="/breweries/<%= brewery.id %>"><%= brewery.name %></a>
-</h2>
-<a href="/breweries/<%= brewery.id %>"><img class="logo" src="<%= brewery.logo %>" alt=""></a>
+  <% @breweries.each do |brewery| %>
+    <article class='brewery'>
+      <h2>
+        <a href="/breweries/<%= brewery.id %>"><%= brewery.name %></a>
+      </h2>
+      <a href="/breweries/<%= brewery.id %>"><img class="logo" src="<%= brewery.logo %>" alt=""></a>
 
 
-<% if logged_in? %>
-<a class="new_review" href="/brewery_reviews/new">Add a Brewery Review</a>
-<% end %>
-</article>
-<% end %>
+      <% if logged_in? %>
+        <a class="new_review" href="/brewery_reviews/new">Add a Brewery Review</a>
+      <% end %>
+    </article>
+  <% end %>
 </div>

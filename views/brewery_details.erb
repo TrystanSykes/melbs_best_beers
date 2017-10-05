@@ -1,35 +1,35 @@
 <div class="container">
-<h1><%= @brewery.name %></h1>
-<article class='brewery_details'>
-<img class="logo" src="<%= @brewery.logo %>" alt="">
-<ul>
-  <li>Name: <%= @brewery.name %></li>
-  <li>Address: <%= @brewery.address %></li>
-  <li>Bar Address: <%= @brewery.bar_address %></li>
-  <li>Website: <a href="<%= @brewery.website %>">Here</a></li>
-  <li>Brewery Avg Rating: <%= @brewery.avg_rating %></li>
-</ul>
+  <h1><%= @brewery.name %></h1>
+  <article class='brewery_details'>
+    <img class="logo" src="<%= @brewery.logo %>" alt="">
+    <ul>
+      <li>Name: <%= @brewery.name %></li>
+      <li>Address: <%= @brewery.address %></li>
+      <li>Bar Address: <%= @brewery.bar_address %></li>
+      <li>Website: <a href="<%= @brewery.website %>">Here</a></li>
+      <li>Brewery Avg Rating: <%= @brewery.avg_rating %></li>
+    </ul>
 
-<% if logged_in? %>
-<a class="new_review" href="/brewery_reviews/new">Add a Brewery Review</a>
-<% end %>
+    <% if logged_in? %>
+      <a class="new_review" href="/brewery_reviews/new">Add a Brewery Review</a>
+    <% end %>
 
-</article> 
-<h2 class="reviews_heading">Reviews</h2>
-<div class="details_review">
-<% @reviews.each do |review| %>
-<p><%= review.body %> <br>
-  Rating: <%= review.rating %> out of 5 <br>
-   By <%= review.user.username %>
-</p>
-<% end %>
-</div>
+  </article> 
+  <h2 class="reviews_heading">Reviews</h2>
+  <div class="details_review">
+    <% @reviews.each do |review| %>
+      <p><%= review.body %> <br>
+      Rating: <%= review.rating %> out of 5 <br>
+      By <%= review.user.username %>
+      </p>
+    <% end %>
+  </div>
 
-<h2 class="beers_heading">Beers</h2>
+  <h2 class="beers_heading">Beers</h2>
 
-<% @beers.each do |beer| %>
-<article class='beer_links'>
-<a href="/beers/<%= beer.id %>"><img src="<%= beer.image %>" alt=""></a>
-</article>
-<% end %>
+  <% @beers.each do |beer| %>
+    <article class='beer_links'>
+      <a href="/beers/<%= beer.id %>"><img src="<%= beer.image %>" alt=""></a>
+    </article>
+  <% end %>
 </div>

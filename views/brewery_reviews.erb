@@ -1,37 +1,36 @@
 <div class="container">
-<h1>Brewery Reviews</h1>
+  <h1>Brewery Reviews</h1>
 
-<% if logged_in? %>
-<div class="user_option">
-<a href="/brewery_reviews/new">Add a Brewery Review</a>
-</div>
-<% end %>
-
-<% @brewery_reviews.each do |review| %>
-<article class='review'>
-<h2>
-  <a href="/breweries/<%= review.brewery_id %>"><%= review.brewery.name %></a>
-  </h2>
-<a href="/breweries/<%= review.brewery_id %>">
-<img src="<%= review.brewery.logo %>" alt="">
-</a>
-
-<p><%= review.body %><br>
-  Rating: <%= review.rating %> out of 5 <br>
-   By <%= review.user.username %></p>
-   <% if logged_in? %>
-    <div class="button_box">
-      <% if current_user.id == review.user_id %>
-        <form method="get" action="/brewery_reviews/<%= review.id %>/edit">
-          <button>Edit</button>
-        </form>
-        <form method="get" action="/brewery_reviews/delete/<%= review.id %>">
-          <button>Delete</button>
-        </form>
-      <% end %>
+  <% if logged_in? %>
+    <div class="user_option">
+      <a href="/brewery_reviews/new">Add a Brewery Review</a>
     </div>
   <% end %>
 
-</article>
-<% end %>
+  <% @brewery_reviews.each do |review| %>
+    <article class='review'>
+      <h2>
+        <a href="/breweries/<%= review.brewery_id %>"><%= review.brewery.name %></a>
+        </h2>
+      <a href="/breweries/<%= review.brewery_id %>">
+      <img src="<%= review.brewery.logo %>" alt="">
+      </a>
+
+      <p><%= review.body %><br>
+        Rating: <%= review.rating %> out of 5 <br>
+         By <%= review.user.username %></p>
+       <% if logged_in? %>
+        <div class="button_box">
+          <% if current_user.id == review.user_id %>
+            <form method="get" action="/brewery_reviews/<%= review.id %>/edit">
+              <button>Edit</button>
+            </form>
+            <form method="get" action="/brewery_reviews/delete/<%= review.id %>">
+              <button>Delete</button>
+            </form>
+          <% end %>
+        </div>
+      <% end %>
+    </article>
+  <% end %>
 </div>
