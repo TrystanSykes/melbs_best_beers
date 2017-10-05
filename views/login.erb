@@ -4,6 +4,9 @@
 <% if @message %>
 <h2>  <%= @message %> </h2>
 <% end %>
+<% if @user %>
+<p> Account Sucessfully Created <%= @user.username %> <br> Please Log In</p>
+<% end %>
 <form action="/session" method="post">
 <label for="">Email</label>
 <input type="text" name="email">

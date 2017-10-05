@@ -38,6 +38,11 @@ get '/login' do
   erb :login
 end
 
+get '/login/:id' do
+  @user = User.find(params[:id])
+  erb :login
+end
+
 get '/beers' do
   session[:last_page] = request.env['REQUEST_PATH']
   @beers = Beer.all.order(:brewery_id)
@@ -122,7 +127,7 @@ end
 post '/users' do
   @user = User.new(username: params[:username],email: params[:email], password: params[:password])
   if @user.save
-    redirect "#{session[:last_page]}"
+    redirect "/login/#{@user.id}"
   else
     @errors = @user.errors.messages
     erb :create_user
