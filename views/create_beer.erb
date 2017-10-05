@@ -1,63 +1,65 @@
 <div class="container">
-<h2>Add New Beer</h2>
+  <div class="add_form">
+    <h2>Add New Beer</h2>
 
-<% if @errors %>
-<ul>
-<% @errors.each do |key,value| %>
-<li><%= "#{key.to_s.capitalize} #{value[0]}" %></li>
-<% end %>
-</ul>
-<% end %>
+    <% if @errors %>
+    <ul>
+    <% @errors.each do |key,value| %>
+    <li><%= "#{key.to_s.capitalize} #{value[0]}" %></li>
+    <% end %>
+    </ul>
+    <% end %>
 
-<form action="/beers" method="post">
-  <div class="create_field">
-    <label for="">Brewery</label>
-    <select name="brewery" id="">
-      <% @breweries.each do |brewery| %>
-      <option value="<%= brewery.id %>"><%= brewery.name %></option>
-      <% end %>
-    </select>
+    <form action="/beers" method="post">
+      <div class="create_field">
+        <label for="">Brewery</label>
+        <select name="brewery" id="">
+          <% @breweries.each do |brewery| %>
+          <option value="<%= brewery.id %>"><%= brewery.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="create_field">
+        <label for="">Beer Name</label>
+        <input type="text" name="beer_name" value="">
+      </div>
+      <div class="create_field">
+        <label for="">Style</label>
+        <select name="style" id="">
+          <option value="Lager">Lager</option>
+          <option value="Pilsner">Pilsner</option>
+          <option value="Blonde">Blonde</option>
+          <option value="ESB">ESB</option>
+          <option value="Pale Ale">Pale Ale</option>
+          <option value="Golden Ale">Golden Ale</option>
+          <option value="Amber Ale">Amber Ale</option>
+          <option value="IPA">IPA</option>
+          <option value="Red Ale">Red Ale</option>
+          <option value="Brown Ale">Brown Ale</option>
+          <option value="Stout">Stout</option>
+          <option value="Porter">Porter</option>
+          <option value="Barley Wine">Barley Wine</option>
+          <option value="Wheat Beer">Wheat Beer</option>
+          <option value="Saison">Saison</option>
+          <option value="Gose">Gose</option>
+          <option value="Sour">Sour</option>
+          <option value="Lambic">Lambic</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="create_field">
+        <label for="">ABV</label>
+        <input type="text" name="abv" value="">
+      </div>
+      <div class="create_field">
+        <label for="">IBU</label>
+        <input type="text" name="ibu" value="" placeholder="Write N/A if unknown">
+      </div>
+      <div class="create_field">
+        <label for="">Image URL</label>
+        <input type="text" name="image" value="">
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   </div>
-  <div class="create_field">
-    <label for="">Beer Name</label>
-    <input type="text" name="beer_name" value="">
-  </div>
-  <div class="create_field">
-    <label for="">Style</label>
-    <select name="style" id="">
-      <option value="Lager">Lager</option>
-      <option value="Pilsner">Pilsner</option>
-      <option value="Blonde">Blonde</option>
-      <option value="ESB">ESB</option>
-      <option value="Pale Ale">Pale Ale</option>
-      <option value="Golden Ale">Golden Ale</option>
-      <option value="Amber Ale">Amber Ale</option>
-      <option value="IPA">IPA</option>
-      <option value="Red Ale">Red Ale</option>
-      <option value="Brown Ale">Brown Ale</option>
-      <option value="Stout">Stout</option>
-      <option value="Porter">Porter</option>
-      <option value="Barley Wine">Barley Wine</option>
-      <option value="Wheat Beer">Wheat Beer</option>
-      <option value="Saison">Saison</option>
-      <option value="Gose">Gose</option>
-      <option value="Sour">Sour</option>
-      <option value="Lambic">Lambic</option>
-      <option value="Other">Other</option>
-    </select>
-  </div>
-  <div class="create_field">
-    <label for="">ABV</label>
-    <input type="text" name="abv" value="">
-  </div>
-  <div class="create_field">
-    <label for="">IBU</label>
-    <input type="text" name="ibu" value="" placeholder="Write N/A if unknown">
-  </div>
-  <div class="create_field">
-    <label for="">Image URL</label>
-    <input type="text" name="image" value="">
-  </div>
-  <button type="submit">Submit</button>
-</form>
 </div>

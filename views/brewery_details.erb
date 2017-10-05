@@ -18,7 +18,10 @@
 <h2 class="reviews_heading">Reviews</h2>
 <div class="details_review">
 <% @reviews.each do |review| %>
-<p><%= review.body %> By <%= review.user.username %></p>
+<p><%= review.body %> <br>
+  Rating: <%= review.rating %> out of 5 <br>
+   By <%= review.user.username %>
+</p>
 <% end %>
 </div>
 

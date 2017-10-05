@@ -1,3 +1,41 @@
 <div class="container">
-<h1>Melbournes Best Beers</h1>
+<h1>Highest Rated</h1>
+
+  <div class="top_beers">
+    <h1>Beers</h1>
+      <% @beers.each do |beer| %>
+        <div class="index_beer">
+          <a href="/beers/<%= beer.id %>"><img src="<%= beer.image %>" alt=""></a>
+          <p>Rating: <%= beer.avg_rating %> out of 5</p>
+        </div>
+      <% end %>
+  </div>
+
+  <div class="top_breweries">
+    <h1>Breweries</h1>
+      <% @breweries.each do |brewery| %>
+        <div class="index_brewery">
+          <a href="/breweries/<%= brewery.id %>"><img src="<%= brewery.logo %>" alt=""></a>
+          <p>Rating: <%= brewery.avg_rating %> out of 5</p>
+        </div>
+      <% end %>
+  </div>
+
+  <div class="top_users">
+    <h1>Top Users</h1>
+    <div class="index_brewery">
+      <h2>Most Beer Reviews</h2>
+      <h2><%= @most_beer_reviews[0].username %> with <%= @most_beer_reviews[0].beer_review_count %></h2>
+    </div>
+
+    <div class="index_brewery">
+      <h2>Most Brewery Reviews</h2>
+      <h2><%= @most_brewery_reviews[0].username %> with <%= @most_brewery_reviews[0].brewery_review_count %></h2>
+    </div>
+  
+  </div>
+
+
+
 </div>
+

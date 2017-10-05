@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'pry'
 require_relative 'db_config'
 require_relative 'models/user'
@@ -27,6 +27,10 @@ end
 
 get '/' do
   session[:last_page] = request.env['REQUEST_PATH']
+  @beers = Beer.where('avg_rating > 0').order(avg_rating: :desc).limit(3)
+  @breweries = Brewery.where('avg_rating > 0').order(avg_rating: :desc).limit(3)
+  @most_beer_reviews = User.where('beer_review_count > 0').order(beer_review_count: :desc).limit(1)
+  @most_brewery_reviews = User.where('brewery_review_count > 0').order(brewery_review_count: :desc).limit(1)
   erb :index
 end
 
@@ -79,6 +83,11 @@ end
 get '/beer_reviews/new' do
   @breweries = Brewery.all.order(:id)
   erb :create_beer_review
+end
+
+get '/beer_reviews/:id/edit' do
+  @review = BeerReview.find(params[:id])
+erb :beer_review_edit
 end
 
 get '/brewery_reviews' do
@@ -143,13 +152,32 @@ post '/breweries' do
   end
 end
 
+put '/beer_reviews/:id' do
+  @beer_review = BeerReview.find(params[:id])
+  @beer_review.body = params[:body]
+  @beer_review.rating = params[:rating]
+  @beer = @beer_review.beer
+  if @beer_review.save
+    @reviews = @beer.beer_reviews
+    @beer.avg_rating = (@reviews.sum(&:rating).to_f / @reviews.count).round
+    @beer.save
+    redirect "/beer_reviews"
+  else
+    @errors = @beer_review.errors.messages
+    erb :beer_review_edit
+  end
+end
+
 post '/beer_reviews' do
   @beer = Beer.find(params[:beer_reviewed])
+  @user = User.find(session[:user_id])
   @beer_review = BeerReview.new(user_id: session[:user_id], beer: @beer, body: params[:body], rating: params[:rating])
   if @beer_review.save
     @reviews = @beer.beer_reviews
     @beer.avg_rating = (@reviews.sum(&:rating).to_f / @reviews.count).round
     @beer.save
+    @user.beer_review_count = BeerReview.where(user_id: @user.id).count
+    @user.save(validate: false)
     redirect "/beers/#{@beer.id}"
   else
     @breweries = Brewery.all.order(:id)
@@ -160,11 +188,14 @@ end
 
 post '/brewery_reviews' do
   @brewery = Brewery.find(params[:brewery_reviewed])
+  @user = User.find(session[:user_id])
   @brewery_review = BreweryReview.new(user_id: session[:user_id], brewery_id: @brewery.id, body: params[:body], rating: params[:rating])
   if @brewery_review.save
     @reviews = @brewery.brewery_reviews
     @brewery.avg_rating = (@reviews.sum(&:rating).to_f / @reviews.count).round
     @brewery.save
+    @user.brewery_review_count = BreweryReview.where(user_id: @user.id).count
+    @user.save(validate: false)
     redirect "/breweries/#{@brewery.id}"
   else
     @breweries = Brewery.all.order(:id)

@@ -1,6 +1,12 @@
 <div class="container">
 <h1>Beer Reviews</h1>
 
+<div class="user_option">
+<% if logged_in? %>
+<a href="/beer_reviews/new">Add a Beer Review</a>
+<% end %>
+</div>
+
 <% @beer_reviews.each do |review| %>
 <article class='review'>
 <h2>
@@ -10,8 +16,15 @@
 <a href="/beers/<%= review.beer_id %>">
 <img src="<%= review.beer.image %>" alt=""></a>
 
-<p><%= review.body %> By <%= review.user.username %></p>
-
+<p><%= review.body %> <br>
+  Rating: <%= review.rating %> out of 5 <br>
+   By <%= review.user.username %>
+</p>
+  <% if current_user.id == review.user_id %>
+  <form method="get" action="/beer_reviews/<%= review.id %>/edit">
+    <button>Edit</button>
+  </form>
+  <% end %>
 </article>
 <% end %>
 </div>

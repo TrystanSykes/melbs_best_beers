@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="add_form">
+<h2>Edit Review for <%= @review.beer.name %></h2>
+    <form action="/beer_reviews/<%= @review.id%>" method="post">
+      <input type="hidden" name="_method" value="put">
+      <div class="create_field">
+        <label for="">Beer</label>
+        <select name="id" id="">
+          <option value="<%= @review.beer.id %>"><%= @review.beer.name %></option>
+        </select>
+      </div>
+      <div class="create_field">
+        <label for="">Review Text</label>
+        <textarea name="body" id="" cols="30" rows="10"><%= @review.body %></textarea>
+      </div>
+      <div class="create_field">
+        <label for="">Rating</label>
+        <input type="text" name="rating" value="<%= @review.rating %>" placeholder="Number from 1-5">
+      </div>
+      <button type="submit">Update</button>
+    </form>
+  </div>
+</div>

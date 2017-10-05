@@ -4,7 +4,51 @@
 
 body {
   font-family: 'Fredoka One', cursive;
-  background: url('../../images/Beer-Wallpapers-HD.jpg');
+  background: url('../images/bg.jpg');
+  background: cover;
+}
+
+a {
+  text-decoration: none;
+  color: purple;
+}
+
+h1 {
+  /*margin-left: 10px;*/
+  font-size: 2.5em;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: white; 
+}
+
+p {
+  font-family: 'Cabin', sans-serif;
+}
+
+ul {
+  font-family: 'Cabin', sans-serif;
+}
+
+.add_form {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 1.5em;
+  padding: 20px;
+}
+
+.user_option {
+  margin-left: 20px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 1.5em;
+  width: 25%;
+  text-align: center;
+  display: block;
+
 }
 
 .container {
@@ -12,26 +56,52 @@ body {
 }
 
 header {
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 header a {
   display: inline-block;
-  margin: 10px;
+  margin: 5px 10px 5px 20px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 20px;
   text-transform: bold;
   font-size: 1.5em;
+  background-color: white;
 }
 
 .login_box {
   border: 1px solid black;
   border-radius: 20px;
-  margin: 20px;
+  margin: 5px 20px;
   padding: 10px;
-/*  width: 70%;*/
+  background-color: white;
 }
+
+.top_beers, .top_breweries, .top_users {
+  /*border: 1px solid black;*/
+  border-radius: 20px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.index_beer, .index_brewery {
+  display: block;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+}
+
+/*.top_breweries {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+}*/
 
 .beer_details {
   margin: 10px auto;
@@ -40,6 +110,7 @@ header a {
   padding: 10px;
   display: block;
   width: 70%;
+  background-color: white;
 }
 
 .beer_details h1 {
@@ -62,6 +133,7 @@ header a {
   padding: 10px;
   width: 70%;
   margin: 10px auto;
+  background-color: white;
 }
 
 .reviews_heading {
@@ -71,6 +143,7 @@ header a {
   border: 1px solid black;
   border-radius: 20px;
   padding: 10px;
+  background-color: white;
 }
 
 .beers_heading {
@@ -79,6 +152,7 @@ header a {
   border: 1px solid black;
   border-radius: 20px;
   padding: 10px;
+  background-color: white;
 }
 
 .brewery_details {
@@ -88,6 +162,7 @@ header a {
   padding: 10px;
   display: block;
   width: 70%;
+  background-color: white;
 }
 
 .brewery_details img {
@@ -122,15 +197,21 @@ header a {
   border: 1px solid black;
   border-radius: 20px;
   padding: 20px;
+  background-color: white;
+  margin: 10px;
 }
 
 .create_field {
   margin: 20px;
+  font-family: 'Cabin', sans-serif;
 }
 
 .new_review {
   display: block;
   margin: 10px;
+  font-size: 1.5em;
+  background-color: white;
+  width: 40%;
 }
 
 .create_account {
@@ -145,18 +226,27 @@ header a {
   height: 80vh;
   vertical-align: top;
   margin: 10px;
+  background-color: white;
 }
 
-.beer {
+.beer h2 {
+  font-size: 2em;
+  margin-top: 0;
 }
 
 .beer img {
   height: 80%;
+  margin: 0 auto;
+  display: block;
 }
 
 .brewery img {
   max-height: 50vh;
 } 
+
+.brewery h2 {
+  font-size: 2em;
+}
 
 .review img {
   max-height: 70%;
@@ -180,10 +270,7 @@ header a {
   margin: 20px auto;
 }
 
-.brewery {
+/*.brewery {
   margin: 20px auto;
-}
+}*/
 
-.user_option {
-  display: block;
-}

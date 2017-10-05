@@ -1,5 +1,6 @@
 <div class="container">
 <h1>Log in</h1>
+  <div class="add_form">
 <% if @message %>
 <h2>  <%= @message %> </h2>
 <% end %>
@@ -16,4 +17,5 @@
 <form class="create_account" action="/users/new" method="get">
   <button>Create Account</button>
 </form>
+</div>
 </div>
