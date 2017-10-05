@@ -275,12 +275,13 @@ header a {
 }
 
 .brewery {
-  width: 30vw; 
+  height: 60vh; 
 }
 
 .brewery img {
-  max-height: 40%;
+  max-height: 70%;
   max-width: 100%;
+  margin: 0 auto;
 } 
 
 .brewery h2 {
