@@ -19,6 +19,18 @@
 <p><%= review.body %><br>
   Rating: <%= review.rating %> out of 5 <br>
    By <%= review.user.username %></p>
+   <% if logged_in? %>
+    <div class="button_box">
+      <% if current_user.id == review.user_id %>
+        <form method="get" action="/brewery_reviews/<%= review.id %>/edit">
+          <button>Edit</button>
+        </form>
+        <form method="get" action="/brewery_reviews/delete/<%= review.id %>">
+          <button>Delete</button>
+        </form>
+      <% end %>
+    </div>
+  <% end %>
 
 </article>
 <% end %>

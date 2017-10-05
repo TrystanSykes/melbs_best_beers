@@ -2,30 +2,35 @@
 <h1>Beer Reviews</h1>
 
 <% if logged_in? %>
-<div class="user_option">
-<a href="/beer_reviews/new">Add a Beer Review</a>
-</div>
+  <div class="user_option">
+  <a href="/beer_reviews/new">Add a Beer Review</a>
+  </div>
 <% end %>
 
 <% @beer_reviews.each do |review| %>
 <article class='review'>
-<h2>
+  <h2>
+    <a href="/beers/<%= review.beer_id %>">
+    <%= review.beer.name %></a>
+  </h2>
   <a href="/beers/<%= review.beer_id %>">
-  <%= review.beer.name %></a>
-</h2>
-<a href="/beers/<%= review.beer_id %>">
-<img src="<%= review.beer.image %>" alt=""></a>
+  <img src="<%= review.beer.image %>" alt=""></a>
 
-<p><%= review.body %> <br>
-  Rating: <%= review.rating %> out of 5 <br>
-   By <%= review.user.username %>
-</p>
-<% if logged_in? %>
-  <% if current_user.id == review.user_id %>
-  <form method="get" action="/beer_reviews/<%= review.id %>/edit">
-    <button>Edit</button>
-  </form>
-  <% end %>
+  <p><%= review.body %> <br>
+    Rating: <%= review.rating %> out of 5 <br>
+     By <%= review.user.username %>
+  </p>
+  <% if logged_in? %>
+    <div class="button_box">
+      <% if current_user.id == review.user_id %>
+        <form method="get" action="/beer_reviews/<%= review.id %>/edit">
+          <button>Edit</button>
+        </form>
+        <form method="get" action="/beer_reviews/delete/<%= review.id %>">
+          <button>Delete</button>
+        </form>
+      <% end %>
+    </div>
   <% end %>
 </article>
 <% end %>

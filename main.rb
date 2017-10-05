@@ -90,6 +90,10 @@ get '/beer_reviews/:id/edit' do
 erb :beer_review_edit
 end
 
+get '/beer_reviews/delete/:id' do
+  erb :beer_review_delete
+end
+
 get '/brewery_reviews' do
   session[:last_page] = request.env['REQUEST_PATH']
   @brewery_reviews = BreweryReview.all.order(:id)
@@ -101,9 +105,19 @@ get '/brewery_reviews/new' do
   erb :create_brewery_review
 end
 
+get '/brewery_reviews/:id/edit' do
+  @review = BreweryReview.find(params[:id])
+erb :brewery_review_edit
+end
+
+get '/brewery_reviews/delete/:id' do
+  erb :brewery_review_delete
+end
+
 get '/users/new' do
   erb :create_user
 end
+
 
 post '/users' do
   @user = User.new(username: params[:username],email: params[:email], password: params[:password])
@@ -152,6 +166,23 @@ post '/breweries' do
   end
 end
 
+put '/brewery_reviews/:id' do
+  @brewery_review = BreweryReview.find(params[:id])
+  @brewery_review.body = params[:body]
+  @brewery_review.rating = params[:rating]
+  @brewery = @brewery_review.brewery
+  if @brewery_review.save
+    @reviews = @brewery.brewery_reviews
+    @brewery.avg_rating = (@reviews.sum(&:rating).to_f / @reviews.count).round
+    @brewery.save
+    redirect "/brewery_reviews"
+  else
+    @errors = @brewery_review.errors.messages
+    @review = BreweryReview.find(params[:id])
+    erb :brewery_review_edit
+  end
+end
+
 put '/beer_reviews/:id' do
   @beer_review = BeerReview.find(params[:id])
   @beer_review.body = params[:body]
@@ -164,8 +195,23 @@ put '/beer_reviews/:id' do
     redirect "/beer_reviews"
   else
     @errors = @beer_review.errors.messages
+    @review = BeerReview.find(params[:id])
     erb :beer_review_edit
   end
+end
+
+delete '/beer_reviews/:id' do
+  redirect '/login' unless logged_in?
+  @review = BeerReview.find(params[:id])
+  @review.destroy
+  redirect "/beer_reviews"
+end
+
+delete '/brewery_reviews/:id' do
+  redirect '/login' unless logged_in?
+  @review = BreweryReview.find(params[:id])
+  @review.destroy
+  redirect "/brewery_reviews"
 end
 
 post '/beer_reviews' do

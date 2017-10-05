@@ -21,10 +21,10 @@
       </form>
       <% end %>
       <% if logged_in?  %>
-        <p class='user_details'>Logged in as <%= current_user.username %></p>
         <form action="/session" method="post">
         <input type="hidden" name="_method" value="delete">
         <button>Logout</button>
+        <p class='user_details'>Logged in as <%= current_user.username %></p>
         </form>
       <% end %>
     </div>

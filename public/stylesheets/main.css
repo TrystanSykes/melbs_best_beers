@@ -8,6 +8,11 @@ body {
   background: cover;
 }
 
+button {
+  border-radius: 10px;
+  padding: 5px;
+}
+
 a {
   text-decoration: none;
   color: purple;
@@ -41,6 +46,15 @@ ul {
   border-radius: 20px;
   font-size: 1.5em;
   padding: 20px;
+  font-family: 'Cabin', sans-serif;
+}
+
+.add_form h2 {
+  font-family: 'Fredoka One', cursive;
+}
+
+.add_form button {
+  font-size: 1em;
 }
 
 .user_option {
@@ -82,6 +96,9 @@ header a {
   padding: 10px;
   background-color: white;
 }
+.login_box button {
+  font-size: 1.5em;
+}
 
 .top_beers, .top_breweries, .top_users {
   /*border: 1px solid black;*/
@@ -103,6 +120,10 @@ header a {
   padding: 10px;
   margin: 10px;
   background-color: white;
+}
+
+.index_beer p, .index_brewery p {
+  font-size: 1.5em;
 }
 
 /*.top_breweries {
@@ -191,7 +212,11 @@ header a {
   padding: 10px;
 }
 
-
+.user_details {
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 0 0 0 20px;
+}
 
 .logo {
  display: block;
@@ -225,6 +250,7 @@ header a {
 
 .create_account {
   margin: 20px;
+
 }
 
 .beer, .brewery, .review {
@@ -232,7 +258,7 @@ header a {
   border-radius: 20px;
   padding: 20px;
   display: inline-block;
-  height: 80vh;
+  height: 90vh;
   vertical-align: top;
   margin: 10px;
   background-color: white;
@@ -275,15 +301,27 @@ header a {
   vertical-align: top;
 }
 
+.review form {
+  font-size: 1.5em;
+  display: inline-block;
+}
+
+.review button {
+  font-size: 1em;
+  margin-top: 20px;
+}
+
 .review {
   width: 70%;
   display: block;
   margin: 20px auto;
 }
 
-/*.brewery {
-  margin: 20px auto;
-}*/
+.button_box {
+  display: block;
+}
+
+
 
 
 
