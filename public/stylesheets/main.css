@@ -98,16 +98,23 @@ header a {
   width: 30%;
   display: inline-block;
 }
+
 .login_box button {
   font-size: 1.15em;
 }
 
 .top_beers, .top_breweries, .top_users {
-  /*border: 1px solid black;*/
   border-radius: 20px;
   padding: 10px;
   display: inline-block;
   vertical-align: top;
+  height: 100vh;
+  width: 30vw;
+}
+
+.top_beers h1, .top_breweries h1, .top_users h1 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .top_beers img, .top_breweries img {
@@ -122,12 +129,21 @@ header a {
   padding: 10px;
   margin: 10px;
   background-color: white;
+  height: 40%;
 }
 
-
+.index_beer img, .index_brewery img {
+  height: 80%;
+  max-width: 90%;
+}
 
 .index_beer p, .index_brewery p {
   font-size: 1.25em;
+}
+
+.top_users {
+  text-align: center;
+  vertical-align: middle;
 }
 
 .beer_details {
@@ -269,7 +285,7 @@ header a {
 }
 
 .beer img {
-  height: 80%;
+  height: 60%;
   margin: 0 auto;
   display: block;
 }
@@ -279,7 +295,7 @@ header a {
 }
 
 .brewery img {
-  max-height: 70%;
+  max-height: 60%;
   max-width: 100%;
   margin: 0 auto;
 } 
@@ -289,7 +305,7 @@ header a {
 }
 
 .review img {
-  max-height: 60%;
+  max-height: 70%;
   max-width: 30%;
 }
 
@@ -320,13 +336,20 @@ header a {
   width: 70%;
   display: block;
   margin: 20px auto;
+  height: 70vh;
 }
 
 .button_box {
   display: block;
 }
 
+.button_box button {
+  display: inline-block;
+}
 
+.button_box form {
+  display: inline-block;
+}
 
 
 

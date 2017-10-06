@@ -1,26 +1,28 @@
 <div class="container">
   <div class="add_form">
-    <h2>Add New Beer</h2>
 
     <% if @errors %>
       <ul>
-        <% @errors.each do |key,value| %>
-          <li><%= "#{key.to_s.capitalize} #{value[0]}" %></li>
-        <% end %>
+      <% @errors.each do |key,value| %>
+        <li><%= "#{key.to_s.capitalize} #{value[0]}" %></li>
+      <% end %>
       </ul>
     <% end %>
-    <form action="/beers" method="post">
+
+    <h2>Edit <%= @beer.name %></h2>
+    <form action="/beers/<%= @beer.id%>" method="post">
+      <input type="hidden" name="_method" value="put">
       <div class="create_field">
         <label for="">Brewery</label>
         <select name="brewery" id="">
-          <% @breweries.each do |brewery| %>
-          <option value="<%= brewery.id %>"><%= brewery.name %></option>
-          <% end %>
+          <option value="<%= @beer.brewery.id %>"><%= @beer.brewery.name %></option>
         </select>
       </div>
       <div class="create_field">
-        <label for="">Beer Name</label>
-        <input type="text" name="beer_name" value="">
+        <label for="">Beer</label>
+        <select name="id" id="">
+          <option value="<%= @beer.id %>"><%= @beer.name %></option>
+        </select>
       </div>
       <div class="create_field">
         <label for="">Style</label>
@@ -48,15 +50,15 @@
       </div>
       <div class="create_field">
         <label for="">ABV</label>
-        <input type="text" name="abv" value="">
+        <input type="text" name="abv" value="<%= @beer.abv %>">
       </div>
       <div class="create_field">
         <label for="">IBU</label>
-        <input type="text" name="ibu" value="" placeholder="Write N/A if unknown">
+        <input type="text" name="ibu" value="<%= @beer.ibu %>" placeholder="Write N/A if unknown">
       </div>
       <div class="create_field">
         <label for="">Image URL</label>
-        <input type="text" name="image" value="">
+        <input type="text" name="image" value="<%= @beer.image %>">
       </div>
       <button type="submit">Submit</button>
     </form>

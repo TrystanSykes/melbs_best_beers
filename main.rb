@@ -61,6 +61,15 @@ get '/beers/:id' do
 erb :beer_details
 end
 
+get '/beers/:id/edit' do
+  @beer = Beer.find(params[:id])
+erb :beer_edit
+end
+
+get '/beers/delete/:id' do
+  erb :beer_delete
+end
+
 get '/breweries' do
   session[:last_page] = request.env['REQUEST_PATH']
   @breweries = Brewery.all.order(:id)
@@ -77,6 +86,15 @@ get '/breweries/:id' do
   @beers = Beer.where(brewery_id: params[:id])
   @reviews = BreweryReview.where(brewery_id: params[:id])
 erb :brewery_details
+end
+
+get '/breweries/:id/edit' do
+  @brewery = Brewery.find(params[:id])
+erb :brewery_edit
+end
+
+get '/breweries/delete/:id' do
+  erb :brewery_delete
 end
 
 get '/beer_reviews' do
@@ -169,6 +187,50 @@ post '/breweries' do
     @errors = @brewery.errors.messages
     erb :create_brewery
   end
+end
+
+put '/breweries/:id' do
+  @brewery = Brewery.find(params[:id])
+  @brewery.address = params[:address]
+  @brewery.bar_address = params[:bar_address]
+  @brewery.website = params[:website]
+  @brewery.logo = params[:logo]
+  if @brewery.save
+    redirect "/breweries/#{@brewery.id}"
+  else
+    @errors = @brewery.errors.messages
+    @brewery = Brewery.find(params[:id])
+    erb :brewery_edit
+  end
+end
+
+delete '/breweries/:id' do
+  redirect '/login' unless logged_in?
+  @brewery = Brewery.find(params[:id])
+  @brewery.destroy
+  redirect "/breweries"
+end
+
+put '/beers/:id' do
+  @beer = Beer.find(params[:id])
+  @beer.style = params[:style]
+  @beer.abv = params[:abv]
+  @beer.ibu = params[:ibu]
+  @beer.image = params[:image]
+  if @beer.save
+    redirect "/beers/#{@beer.id}"
+  else
+    @errors = @beer.errors.messages
+    @beer = Beer.find(params[:id])
+    erb :beer_edit
+  end
+end
+
+delete '/beers/:id' do
+  redirect '/login' unless logged_in?
+  @beer = Beer.find(params[:id])
+  @beer.destroy
+  redirect "/beers"
 end
 
 put '/brewery_reviews/:id' do

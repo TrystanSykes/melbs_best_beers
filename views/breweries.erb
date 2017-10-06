@@ -14,7 +14,18 @@
       </h2>
       <a href="/breweries/<%= brewery.id %>"><img class="logo" src="<%= brewery.logo %>" alt=""></a>
 
-
+      <% if logged_in? %>
+        <div class="button_box">
+          <% if current_user.id == 1 %>
+            <form method="get" action="/breweries/<%= brewery.id %>/edit">
+              <button>Edit</button>
+            </form>
+            <form method="get" action="/breweries/delete/<%= brewery.id %>">
+              <button>Delete</button>
+            </form>
+          <% end %>
+        </div>
+      <% end %>
       <% if logged_in? %>
         <a class="new_review" href="/brewery_reviews/new">Add a Brewery Review</a>
       <% end %>

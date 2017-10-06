@@ -17,6 +17,18 @@
       <img src="<%= beer.image %>" alt="">
       </a>
       <% if logged_in? %>
+        <div class="button_box">
+          <% if current_user.id == 1 %>
+            <form method="get" action="/beers/<%= beer.id %>/edit">
+              <button>Edit</button>
+            </form>
+            <form method="get" action="/beers/delete/<%= beer.id %>">
+              <button>Delete</button>
+            </form>
+          <% end %>
+        </div>
+      <% end %>
+      <% if logged_in? %>
         <a class="new_review" href="/beer_reviews/new">Add a beer review</a>
       <% end %>
     </article>
