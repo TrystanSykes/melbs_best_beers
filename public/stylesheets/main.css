@@ -129,7 +129,7 @@ header a {
   padding: 10px;
   margin: 10px;
   background-color: white;
-  height: 40%;
+  height: 30%;
 }
 
 .index_beer img, .index_brewery img {
@@ -276,7 +276,7 @@ header a {
 }
 
 .beer {
- height: 60vh;
+ height: 50vh;
 }
 
 .beer h2 {
@@ -291,7 +291,7 @@ header a {
 }
 
 .brewery {
-  height: 60vh; 
+  height: 50vh; 
 }
 
 .brewery img {
@@ -336,7 +336,7 @@ header a {
   width: 70%;
   display: block;
   margin: 20px auto;
-  height: 70vh;
+  height: 60vh;
 }
 
 .button_box {
